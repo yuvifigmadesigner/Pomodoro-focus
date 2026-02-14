@@ -115,19 +115,19 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 animate-in fade-in duration-200">
             <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={onClose} />
 
-            {/* Modal Container - Compact Width and Padding */}
-            <div className="relative bg-[#121214] border border-zinc-800 w-full max-w-[320px] rounded-[1.5rem] shadow-2xl flex flex-col animate-in zoom-in-95 duration-200">
+            {/* Modal Container - Matches Bezel Size (320x376px) */}
+            <div className="relative bg-[#121214] border border-zinc-800 w-[320px] h-[376px] rounded-[3rem] shadow-2xl flex flex-col animate-in zoom-in-95 duration-200 overflow-hidden">
 
                 {/* Header - Reduced vertical padding */}
-                <div className="flex items-center justify-between px-5 py-3 border-b border-zinc-800/50">
+                <div className="flex items-center justify-between px-5 py-3 border-b border-zinc-800/50 shrink-0">
                     <h2 className="text-sm font-bold text-white">Settings</h2>
                     <button onClick={onClose} className="w-6 h-6 rounded-full bg-zinc-800/50 flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-700 transition-colors">
                         <X size={12} />
                     </button>
                 </div>
 
-                {/* Content - Compact spacing, removed scroll */}
-                <div className="p-5 space-y-5">
+                {/* Content - Scrollable if needed */}
+                <div className="p-5 space-y-5 flex-1 overflow-y-auto">
 
                     {/* Appearance Section */}
                     <div className="space-y-3">
@@ -352,8 +352,8 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                                     key={tab}
                                     onClick={() => setActiveTab(tab)}
                                     className={`flex-1 py-1.5 text-[10px] font-bold uppercase tracking-wide rounded-md transition-all duration-300 ${activeTab === tab
-                                            ? 'bg-zinc-800 text-white shadow-md shadow-black/20'
-                                            : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/30'
+                                        ? 'bg-zinc-800 text-white shadow-md shadow-black/20'
+                                        : 'text-zinc-500 hover:text-zinc-300 hover:bg-zinc-800/30'
                                         }`}
                                 >
                                     {tab === 'pomodoro' ? 'Focus' : tab === 'shortBreak' ? 'Short' : 'Long'}
@@ -418,7 +418,7 @@ const SettingsModal: React.FC<SettingsModalProps> = ({
                 </div>
 
                 {/* Footer */}
-                <div className="p-5 pt-0 mt-auto bg-[#121214]">
+                <div className="p-5 pt-0 mt-auto bg-[#121214] shrink-0">
                     <button
                         onClick={handleSave}
                         className="w-full py-3 bg-white text-black font-bold text-sm rounded-xl hover:bg-zinc-200 active:scale-[0.98] transition-all shadow-xl shadow-white/5"
