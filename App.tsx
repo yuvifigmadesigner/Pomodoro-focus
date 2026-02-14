@@ -21,7 +21,7 @@ const App: React.FC = () => {
 
   const backgroundStyle: React.CSSProperties = {
      background: background.startsWith('#') || background.startsWith('rgb') ? background : `url("${background}")`,
-     backgroundColor: background.startsWith('#') || background.startsWith('rgb') ? background : '#09090b',
+     backgroundColor: background.startsWith('#') || background.startsWith('rgb') ? background : '#191919',
      backgroundSize: 'cover',
      backgroundPosition: `${bgPosition.x}% ${bgPosition.y}%`,
      backgroundRepeat: 'no-repeat',
